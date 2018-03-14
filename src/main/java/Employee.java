@@ -4,14 +4,20 @@
  * @see <a href="https://cs125.cs.illinois.edu/lab/10/">Lab 10 Description</a>
  */
 public class Employee {
-
+    /**
+     * Employee name.
+     */
     private String name;
+    /**
+     * Employee manager
+     */
     private String manager;
 
     /**
      * Constructor for initialization.
-     * @param name
-     * @param manager
+     *
+     * @param name name
+     * @param manager manager
      */
     public Employee(final String name, final String manager) {
         this.name = name;
@@ -20,6 +26,7 @@ public class Employee {
 
     /**
      * Getter for name.
+     *
      * @return name
      */
     public String getName() {
@@ -28,7 +35,8 @@ public class Employee {
 
     /**
      * Setter for name.
-     * @param name
+     *
+     * @param name Checkstyle is bad.
      */
     public void setName(final String name) {
         this.name = name;
@@ -36,6 +44,7 @@ public class Employee {
 
     /**
      * Getter for manager.
+     *
      * @return manager
      */
     public String getManager() {
@@ -44,7 +53,8 @@ public class Employee {
 
     /**
      * Setter for manager.
-     * @param manager
+     *
+     * @param manager Checkstyle violates the Sun Coding Conventions here
      */
     public void setManager(final String manager) {
         this.manager = manager;
