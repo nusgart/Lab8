@@ -66,6 +66,17 @@ public class EmployeeDatabase {
 
     }
 
+    public int countManagersAboveRec(final Employee employee) {
+        /*
+         * Implement this function
+         */
+        if(findManager(employee) != null){
+            return 1 + countManagersAboveRec(findManager(employee));
+        }
+        return 0;
+
+    }
+
     /**
      * Count the number of employees under this manager.
      * <p>
@@ -82,6 +93,33 @@ public class EmployeeDatabase {
         for(Employee e: employees){
             if (e.getManager() == employee.getName()){
                 count += 1 + countEmployeesUnder(e);
+            }
+        }
+        return count;
+    }
+
+    private boolean isUnder(Employee e, Employee m){
+        if(findManager(e) == null) return false;
+        if(findManager(e) == m) return true;
+        return isUnder(findManager(e), m);
+    }
+
+    /**
+     * Count the number of employees under this manager.
+     * <p>
+     * Consider both a recursive and an iterative solution to this problem.
+     *
+     * @param employee name of the employee
+     * @return int
+     */
+    public int countEmployeesUnderIter(final Employee employee) {
+        /*
+         * Implement this function
+         */
+        int count = 0;
+        for(Employee e: employees){
+            if (isUnder(e, employee)){
+                count += 1;
             }
         }
         return count;
